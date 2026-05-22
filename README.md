@@ -2,6 +2,10 @@
 
 A personal portfolio website for showing frontend learning, AI tool ideas, Python utilities, and project progress.
 
+## Live Site
+
+https://portfolio-site-sepia-mu.vercel.app
+
 ## Tech Stack
 
 - Next.js
@@ -36,8 +40,6 @@ npm run build
 
 ## Next Improvements
 
-- Replace GitHub and email placeholders with real links.
 - Add screenshots for each project.
 - Add a detail page for each portfolio project.
 - Add a future AI tools page.
-- Deploy to Vercel after the first polish pass.

@@ -33,7 +33,7 @@ const projects = [
     description:
       "当前这个网站本身就是第一个作品：用 Next.js 和 Tailwind 做一个能发给朋友、老师或面试官看的个人主页。",
     tags: ["Next.js", "Tailwind", "Vercel"],
-    next: "补充真实 GitHub 链接、项目截图，并部署到 Vercel。",
+    next: "补充项目截图和更完整的 case study，让这个作品本身也能讲清楚开发过程。",
     accent: "from-cyan-300 to-blue-500",
   },
   {
@@ -59,8 +59,8 @@ const projects = [
 ];
 
 const building = [
-  { label: "当前正在做", value: "Personal Portfolio", detail: "把首页内容、视觉和项目卡片整理到可分享状态。" },
-  { label: "下一步", value: "Deploy to Vercel", detail: "部署后补上真实链接，再开始准备 GitHub README。" },
+  { label: "当前正在做", value: "Personal Portfolio", detail: "首页已经上线，正在补真实链接和作品集说明。" },
+  { label: "下一步", value: "GitHub README", detail: "把线上地址、技术栈和后续计划整理到 README。" },
   { label: "后续", value: "First AI Tool Page", detail: "做一个 AI Study Assistant 的静态原型。" },
 ];
 
@@ -372,23 +372,23 @@ export default function Home() {
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight">Ready for the next build.</h2>
             <p className="mt-3 max-w-2xl text-slate-300">
-              这个站点部署后，我会把 GitHub、在线预览地址和 Email 换成真实链接。现在先保留占位，方便后续上线前统一替换。
+              这个站点已经上线。你可以通过 GitHub 查看源码，也可以用 Email 联系我；后续项目 demo 会继续补到这里。
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               className="inline-flex h-11 items-center justify-center rounded-full border border-white/15 px-5 text-sm font-semibold text-white transition hover:border-cyan-200/50 hover:bg-white/[0.08]"
-              href="https://github.com/your-name"
+              href="https://github.com/Etc-in-the-great"
               target="_blank"
               rel="noreferrer"
             >
-              GitHub 占位
+              GitHub
             </a>
             <a
               className="inline-flex h-11 items-center justify-center rounded-full bg-cyan-100 px-5 text-sm font-semibold text-slate-950 transition hover:bg-white"
-              href="mailto:you@example.com"
+              href="mailto:rosecjy36@gmail.com"
             >
-              Email 占位
+              Email
             </a>
           </div>
         </div>
