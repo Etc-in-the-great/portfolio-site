@@ -386,7 +386,9 @@ export default function Home() {
             </a>
             <a
               className="inline-flex h-11 items-center justify-center rounded-full bg-cyan-100 px-5 text-sm font-semibold text-slate-950 transition hover:bg-white"
-              href="mailto:rosecjy36@gmail.com"
+              href="https://mail.google.com/mail/?view=cm&to=rosecjy36@gmail.com"
+              target="_blank"
+              rel="noreferrer"
             >
               Email
             </a>
