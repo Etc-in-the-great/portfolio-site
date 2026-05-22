@@ -372,7 +372,7 @@ export default function Home() {
             </p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight">Ready for the next build.</h2>
             <p className="mt-3 max-w-2xl text-slate-300">
-              这个站点已经上线。你可以通过 GitHub 查看源码，也可以用 Email 联系我；后续项目 demo 会继续补到这里。
+              这个站点已经上线。你可以通过 GitHub 查看源码，也可以用 Gmail 或 QQ Mail 联系我；后续项目 demo 会继续补到这里。
             </p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -390,7 +390,15 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
             >
-              Email
+              Gmail
+            </a>
+            <a
+              className="inline-flex h-11 items-center justify-center rounded-full border border-cyan-100/40 bg-cyan-100/10 px-5 text-sm font-semibold text-cyan-50 transition hover:border-cyan-100 hover:bg-cyan-100/15"
+              href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=3310729474@qq.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              QQ Mail
             </a>
           </div>
         </div>
