@@ -41,14 +41,14 @@ const projects = [
   },
   {
     title: "AI Study Assistant",
-    status: "下一步想法",
+    status: "Prototype / Planning",
     problem: "学习资料和 PDF 笔记内容多，复习时很难快速抓重点和整理结构。",
     description:
       "计划做一个面向学习场景的 AI Tools 页面，先从 PDF / 笔记总结、重点提取和复习清单生成开始。",
-    tags: ["AI Tools", "React", "PDF"],
+    tags: ["AI Tools", "React", "OpenAI API"],
     next: "先做静态页面原型，再接入一个最小可用的总结流程。",
     accent: "from-violet-300 to-fuchsia-500",
-    href: null,
+    href: "/projects/ai-study-assistant",
   },
   {
     title: "Python Study Utilities",
@@ -339,7 +339,7 @@ export default function Home() {
                       className="mt-8 flex items-center text-sm font-semibold text-cyan-100"
                       href={project.href}
                     >
-                      View case study
+                      {project.title === "AI Study Assistant" ? "View prototype / case study" : "View case study"}
                       <span className="ml-2 transition group-hover:translate-x-1">→</span>
                     </Link>
                   ) : (
