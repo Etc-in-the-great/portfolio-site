@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const skills = [
   {
     name: "Frontend",
@@ -35,6 +37,7 @@ const projects = [
     tags: ["Next.js", "Tailwind", "Vercel"],
     next: "补充项目截图和更完整的 case study，让这个作品本身也能讲清楚开发过程。",
     accent: "from-cyan-300 to-blue-500",
+    href: "/projects/personal-portfolio",
   },
   {
     title: "AI Study Assistant",
@@ -45,6 +48,7 @@ const projects = [
     tags: ["AI Tools", "React", "PDF"],
     next: "先做静态页面原型，再接入一个最小可用的总结流程。",
     accent: "from-violet-300 to-fuchsia-500",
+    href: null,
   },
   {
     title: "Python Study Utilities",
@@ -55,6 +59,7 @@ const projects = [
     tags: ["Python", "Automation", "File tools"],
     next: "先完成一个按课程/日期整理文件的脚本，并写 README 说明。",
     accent: "from-emerald-300 to-teal-500",
+    href: null,
   },
 ];
 
@@ -329,10 +334,20 @@ export default function Home() {
                       </span>
                     ))}
                   </div>
-                  <div className="mt-8 flex items-center text-sm font-semibold text-cyan-100">
-                    Case study 待补充
-                    <span className="ml-2 transition group-hover:translate-x-1">→</span>
-                  </div>
+                  {project.href ? (
+                    <Link
+                      className="mt-8 flex items-center text-sm font-semibold text-cyan-100"
+                      href={project.href}
+                    >
+                      View case study
+                      <span className="ml-2 transition group-hover:translate-x-1">→</span>
+                    </Link>
+                  ) : (
+                    <div className="mt-8 flex items-center text-sm font-semibold text-cyan-100">
+                      Case study 待补充
+                      <span className="ml-2 transition group-hover:translate-x-1">→</span>
+                    </div>
+                  )}
                 </div>
               </article>
             ))}
