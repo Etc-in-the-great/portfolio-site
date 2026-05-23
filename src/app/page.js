@@ -53,14 +53,15 @@ const projects = [
   },
   {
     title: "Python Study Utilities",
-    status: "计划中",
-    problem: "学习文件、作业资料和文档经常分散，手动整理很耗时间，也容易漏。",
+    status: "Early Planning",
+    badge: "Student Toolkit",
+    problem: "学习文件、作业资料和文档经常分散，手动整理、批量重命名和资料分类都很耗时间。",
     description:
-      "准备做一组小型 Python Utilities，用来自动整理文件、批量处理学习资料、生成更清晰的文件结构。",
-    tags: ["Python", "Automation", "File tools"],
-    next: "先完成一个按课程/日期整理文件的脚本，并写 README 说明。",
+      "规划一个学生学习工具箱，用 Python 做文件整理、批量重命名、学习资料分类和 Markdown / TXT 小工具。",
+    tags: ["Python", "Automation", "Markdown / TXT"],
+    next: "先完成工具路线图，再逐步做 Batch File Renamer 和 Study Folder Organizer。",
     accent: "from-emerald-300 to-teal-500",
-    href: null,
+    href: "/projects/python-study-utilities",
   },
 ];
 
@@ -347,7 +348,11 @@ export default function Home() {
                       className="mt-8 flex items-center text-sm font-semibold text-cyan-100"
                       href={project.href}
                     >
-                      {project.title === "AI Study Assistant" ? "Try prototype / Read case study" : "View case study"}
+                      {project.title === "AI Study Assistant"
+                        ? "Try prototype / Read case study"
+                        : project.title === "Python Study Utilities"
+                          ? "View roadmap / View utilities"
+                          : "View case study"}
                       <span className="ml-2 transition group-hover:translate-x-1">→</span>
                     </Link>
                   ) : (
