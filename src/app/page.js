@@ -42,11 +42,12 @@ const projects = [
   {
     title: "AI Study Assistant",
     status: "Prototype / Planning",
+    badge: "Interactive Prototype",
     problem: "学习资料和 PDF 笔记内容多，复习时很难快速抓重点和整理结构。",
     description:
-      "计划做一个面向学习场景的 AI Tools 页面，先从 PDF / 笔记总结、重点提取和复习清单生成开始。",
+      "正在开发中的 AI 学习工具原型，已经有 example notes、mock interaction 和本地生成结果展示。",
     tags: ["AI Tools", "React", "OpenAI API"],
-    next: "先做静态页面原型，再接入一个最小可用的总结流程。",
+    next: "继续打磨交互流程，再接入 OpenAI API、PDF / Text 上传和学习历史保存。",
     accent: "from-violet-300 to-fuchsia-500",
     href: "/projects/ai-study-assistant",
   },
@@ -303,9 +304,16 @@ export default function Home() {
                 <div className={`absolute -right-16 -top-16 h-36 w-36 rounded-full bg-gradient-to-r ${project.accent} opacity-20 blur-3xl transition group-hover:opacity-35`} />
                 <div className="relative">
                   <div className="mb-8 flex items-center justify-between gap-4">
-                    <span className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs font-semibold text-white/80">
-                      {project.status}
-                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="rounded-full border border-white/10 bg-black/25 px-3 py-1 text-xs font-semibold text-white/80">
+                        {project.status}
+                      </span>
+                      {project.badge ? (
+                        <span className="rounded-full border border-violet-200/25 bg-violet-200/10 px-3 py-1 text-xs font-semibold text-violet-100">
+                          {project.badge}
+                        </span>
+                      ) : null}
+                    </div>
                     <span className="h-9 w-9 rounded-2xl border border-white/10 bg-white/[0.06] shadow-inner shadow-white/5" />
                   </div>
                   <h3 className="text-2xl font-semibold tracking-tight">{project.title}</h3>
@@ -339,7 +347,7 @@ export default function Home() {
                       className="mt-8 flex items-center text-sm font-semibold text-cyan-100"
                       href={project.href}
                     >
-                      {project.title === "AI Study Assistant" ? "View prototype / case study" : "View case study"}
+                      {project.title === "AI Study Assistant" ? "Try prototype / Read case study" : "View case study"}
                       <span className="ml-2 transition group-hover:translate-x-1">→</span>
                     </Link>
                   ) : (

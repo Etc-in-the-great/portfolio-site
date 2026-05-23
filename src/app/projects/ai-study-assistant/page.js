@@ -10,6 +10,20 @@ const nextSteps = [
   "补充 README 和截图，让项目能作为独立作品展示",
 ];
 
+const prototypeNotes = [
+  "当前没有接入真实 API，页面不会把输入内容发送到服务器。",
+  "交互结果来自本地 mock data，用来模拟未来 AI 生成后的效果。",
+  "这个页面用于展示产品想法、交互流程和后续扩展方向。",
+];
+
+const milestones = [
+  "接入 OpenAI API",
+  "支持 PDF / Text 上传",
+  "保存学习历史",
+  "生成 Quiz",
+  "移动端优化",
+];
+
 export const metadata = {
   title: "AI Study Assistant Case Study",
   description: "Static prototype for an AI study assistant built with Next.js, React, and Tailwind CSS.",
@@ -38,13 +52,21 @@ export default function AIStudyAssistantPage() {
           <p className="mb-5 font-mono text-sm font-semibold uppercase tracking-[0.22em] text-violet-200">
             Prototype / AI Study Assistant
           </p>
+          <p className="mb-4 text-xl font-semibold text-violet-100 sm:text-2xl">
+            AI Study Assistant
+          </p>
           <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight sm:text-7xl">
-            把课程笔记变成 Summary、Key Points 和 Review Questions。
+            正在开发中的 AI 学习工具原型。
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300">
-            这是一个 AI Tools 方向的静态原型。目标是帮助我把课程笔记或 PDF 内容整理成更清晰的总结、重点和复习问题，
+            把课程笔记转成 Summary、Key Points 和 Review Questions。目标是帮助我把课程笔记或 PDF 内容整理成更清晰的总结、重点和复习问题，
             先把产品界面和学习流程做出来，后续再接入真实 OpenAI API。
           </p>
+          <div className="mt-5 inline-flex max-w-full flex-col gap-1 rounded-2xl border border-cyan-200/20 bg-cyan-200/10 px-4 py-3 text-sm text-cyan-50/85 sm:flex-row sm:items-center sm:gap-3">
+            <span className="font-semibold text-cyan-100">当前版本：Static Prototype</span>
+            <span className="hidden h-1.5 w-1.5 rounded-full bg-cyan-200 sm:block" />
+            <span>No API connected yet</span>
+          </div>
           <p className="mt-4 max-w-3xl rounded-2xl border border-violet-200/15 bg-violet-200/10 p-4 text-sm leading-7 text-violet-50/80">
             这是一个静态原型，当前用于展示产品结构和交互流程；点击示例和 Generate Summary 只会读取本地 mock data，
             不会上传内容，也不会调用真实 AI API。
@@ -120,6 +142,37 @@ export default function AIStudyAssistantPage() {
       </section>
 
       <AssistantPrototype />
+
+      <section className="mx-auto grid max-w-6xl gap-5 px-5 pb-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/20 backdrop-blur-2xl">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-blue-200">
+            Prototype Notes
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight">当前原型说明</h2>
+          <ul className="mt-5 space-y-3 text-slate-300">
+            {prototypeNotes.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-200" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="rounded-3xl border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/20 backdrop-blur-2xl">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-violet-200">
+            Next Milestones
+          </p>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight">接下来要补的能力</h2>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {milestones.map((item) => (
+              <span key={item} className="rounded-full border border-white/10 bg-black/25 px-4 py-2 text-sm text-slate-200">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="mx-auto grid max-w-6xl gap-8 px-5 pb-20 sm:px-8 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
