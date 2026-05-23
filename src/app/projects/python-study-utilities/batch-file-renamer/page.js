@@ -9,9 +9,17 @@ const futureFeatures = [
 ];
 
 const dryRunOutput = [
+  "WARNING: target already exists, rename would be skipped:",
   "lecture1.txt -> cs101_lecture1.txt",
   "lecture2.txt -> cs101_lecture2.txt",
   "homework_final.docx -> cs101_homework_final.docx",
+];
+
+const safetyFeatures = [
+  "dry-run only",
+  "conflict warning",
+  "no folder recursion",
+  "no overwrite",
 ];
 
 export const metadata = {
@@ -115,6 +123,29 @@ export default function BatchFileRenamerPage() {
                 这个输出只是预览计划，脚本不会修改、覆盖或移动任何文件。
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-8">
+        <div className="rounded-3xl border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/20 backdrop-blur-2xl">
+          <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
+            <div>
+              <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-emerald-200">
+                Safety Features
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight">先预览，再考虑真实 rename</h2>
+              <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
+                批量重命名有风险，所以当前版本只做安全预览。遇到目标文件已存在时，会显示 WARNING，而不是覆盖文件。
+              </p>
+            </div>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {safetyFeatures.map((feature) => (
+              <div key={feature} className="rounded-2xl border border-emerald-300/15 bg-emerald-300/10 p-4">
+                <p className="text-sm font-semibold text-emerald-100">{feature}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

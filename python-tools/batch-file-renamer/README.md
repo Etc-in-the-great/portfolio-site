@@ -15,6 +15,8 @@ This first version is dry-run only:
 - It does not actually rename files.
 - It warns if a target file name already exists.
 
+Preview is important before batch renaming because one wrong pattern can affect many files at once. Checking the output first helps catch mistakes such as duplicated names, wrong course prefixes, or accidental overwrite risks.
+
 ## Usage
 
 From this folder:
@@ -37,12 +39,26 @@ lecture2.txt -> cs101_lecture2.txt
 homework_final.docx -> cs101_homework_final.docx
 ```
 
+## Conflict Detection
+
+The script checks whether a target file name already exists in the selected folder.
+
+For example, if `cs101_lecture1.txt` already exists, the script prints a clear warning:
+
+```text
+WARNING: target already exists, rename would be skipped:
+lecture1.txt -> cs101_lecture1.txt
+```
+
+Even when a warning appears, this version still does not modify any real files.
+
 ## Current Limits
 
 - Dry-run only.
 - Only processes files in the selected folder.
 - Does not process subfolders.
 - Does not rename files for real yet.
+- Does not overwrite existing files.
 - Uses a simple prefix rule only.
 
 ## Future Plan

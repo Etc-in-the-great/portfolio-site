@@ -53,9 +53,9 @@ def build_preview(folder: Path, prefix: str) -> list[tuple[Path, Path, str | Non
         warning = None
 
         if target.name in planned_names:
-            warning = "warning: duplicate target name in this preview"
+            warning = "WARNING: duplicate target name in this preview, rename would be skipped:"
         elif target.exists() and target.resolve() != source.resolve():
-            warning = "warning: target file already exists"
+            warning = "WARNING: target already exists, rename would be skipped:"
 
         planned_names.add(target.name)
         preview.append((source, target, warning))
@@ -83,9 +83,9 @@ def main() -> None:
         return
 
     for source, target, warning in preview:
-        print(f"{source.name} -> {target.name}")
         if warning:
-            print(f"  {warning}")
+            print(warning)
+        print(f"{source.name} -> {target.name}")
 
 
 if __name__ == "__main__":
