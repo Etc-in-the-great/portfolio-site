@@ -15,6 +15,7 @@ const utilities = [
     description: "按课程名、日期或编号规则批量重命名学习资料，减少手动改文件名的时间。",
     status: "Planned",
     next: "先支持预览新文件名，再执行真正的 rename。",
+    href: "/projects/python-study-utilities/batch-file-renamer",
   },
   {
     name: "Study Folder Organizer",
@@ -181,6 +182,15 @@ export default function PythonStudyUtilitiesPage() {
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-300">{utility.next}</p>
                 </div>
+                {utility.href ? (
+                  <Link
+                    className="mt-5 inline-flex items-center text-sm font-semibold text-emerald-100"
+                    href={utility.href}
+                  >
+                    View prototype
+                    <span className="ml-2 transition group-hover:translate-x-1">→</span>
+                  </Link>
+                ) : null}
               </article>
             ))}
           </div>
