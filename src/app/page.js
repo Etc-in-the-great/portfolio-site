@@ -53,29 +53,29 @@ const projects = [
   },
   {
     title: "Python Study Utilities",
-    status: "Early Planning",
+    status: "Dry-run Tool Ready",
     badge: "Student Toolkit",
     problem: "学习文件、作业资料和文档经常分散，手动整理、批量重命名和资料分类都很耗时间。",
     description:
-      "规划一个学生学习工具箱，用 Python 做文件整理、批量重命名、学习资料分类和 Markdown / TXT 小工具。",
+      "正在整理一个学生学习工具箱，Batch File Renamer 已经有真实 Python dry-run script，可以安全预览批量重命名结果。",
     tags: ["Python", "Automation", "Markdown / TXT"],
-    next: "先完成工具路线图，再逐步做 Batch File Renamer 和 Study Folder Organizer。",
+    next: "继续完善 Batch File Renamer 的展示说明，再规划 Study Folder Organizer 的 safe mode。",
     accent: "from-emerald-300 to-teal-500",
     href: "/projects/python-study-utilities",
   },
 ];
 
 const building = [
-  { label: "当前正在做", value: "Personal Portfolio", detail: "首页已经上线，正在补真实链接和作品集说明。" },
-  { label: "下一步", value: "GitHub README", detail: "把线上地址、技术栈和后续计划整理到 README。" },
-  { label: "后续", value: "First AI Tool Page", detail: "做一个 AI Study Assistant 的静态原型。" },
+  { label: "已上线", value: "Personal Portfolio", detail: "首页已经部署到 Vercel，并保留项目 case study 入口。" },
+  { label: "已完成基础版", value: "GitHub README", detail: "README 已包含线上地址、技术栈、运行命令和项目状态。" },
+  { label: "已完成 dry-run", value: "Batch File Renamer", detail: "Python 脚本可以预览批量重命名结果，并提示冲突风险。" },
 ];
 
 const roadmap = [
-  "先把 Portfolio 首页打磨完整，并部署到 Vercel。",
+  "保持 Portfolio 已部署状态，并继续同步项目页面和 README 文案。",
   "给每个 Projects 补上截图、开发记录和简短复盘。",
-  "做一个真正用得上的 Python Utilities，并写清楚使用方法。",
-  "尝试做一个 AI Tools 页面，让它至少完成一个真实操作。",
+  "继续打磨 Batch File Renamer 的 dry-run 工具展示和使用说明。",
+  "在 AI Study Assistant 静态流程稳定后，再考虑接入真实 API。",
 ];
 
 export default function Home() {
@@ -178,7 +178,7 @@ export default function Home() {
                 </div>
                 <div className="rounded-2xl border border-blue-300/15 bg-blue-300/10 p-4">
                   <p className="text-sm font-semibold text-blue-100">Next</p>
-                  <p className="mt-1 text-sm text-blue-50/70">Deploy on Vercel</p>
+                  <p className="mt-1 text-sm text-blue-50/70">Polish project status</p>
                 </div>
               </div>
               <div className="h-2 overflow-hidden rounded-full bg-white/10">
@@ -261,7 +261,7 @@ export default function Home() {
                 Now Building
               </p>
               <h2 className="mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
-                先把当前作品集做到可以上线，再开始第一个 AI Tools 页面。
+                作品集已经上线，下一步是把真实项目状态持续同步清楚。
               </h2>
             </div>
           </div>
@@ -292,7 +292,7 @@ export default function Home() {
               </h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-slate-400">
-              这里先放真实的项目计划和当前进度。后续会补 screenshots、live demo、开发记录和复盘。
+              这里放真实的项目计划和当前进度：已部署、静态原型、dry-run 工具和后续路线都会分开标注。
             </p>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
@@ -351,7 +351,7 @@ export default function Home() {
                       {project.title === "AI Study Assistant"
                         ? "Try prototype / Read case study"
                         : project.title === "Python Study Utilities"
-                          ? "View roadmap / View utilities"
+                          ? "View toolkit / Dry-run utility"
                           : "View case study"}
                       <span className="ml-2 transition group-hover:translate-x-1">→</span>
                     </Link>

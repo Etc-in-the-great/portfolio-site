@@ -16,6 +16,13 @@ const prototypeNotes = [
   "这个页面用于展示产品想法、交互流程和后续扩展方向。",
 ];
 
+const prototypeFlow = [
+  "Paste or select a study note",
+  "Click Generate Summary",
+  "Review the generated summary",
+  "Read key points and review questions",
+];
+
 const milestones = [
   "接入 OpenAI API",
   "支持 PDF / Text 上传",
@@ -142,6 +149,34 @@ export default function AIStudyAssistantPage() {
       </section>
 
       <AssistantPrototype />
+
+      <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-8">
+        <div className="rounded-3xl border border-white/10 bg-[#0d111c] p-5 shadow-2xl shadow-black/20 sm:p-6">
+          <div className="mb-6">
+            <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-violet-200">
+              Prototype Evidence
+            </p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight">真实前端交互原型，当前使用 mock data</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-400">
+              这个页面已经可以在浏览器里完成基本交互：选择示例笔记、点击 Generate Summary、查看 Summary、Key Points 和 Review Questions。
+              当前结果来自本地 mock data，no API connected yet。
+            </p>
+          </div>
+          <div className="grid gap-3 md:grid-cols-4">
+            {prototypeFlow.map((step, index) => (
+              <div key={step} className="rounded-2xl border border-violet-300/15 bg-violet-300/10 p-4">
+                <p className="font-mono text-xs font-semibold uppercase tracking-[0.14em] text-violet-100">
+                  Step {index + 1}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-violet-50/75">{step}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-4 rounded-2xl border border-cyan-200/15 bg-cyan-200/10 p-4 text-sm leading-7 text-cyan-50/80">
+            Evidence status: frontend prototype is real; AI generation is simulated; no user content is sent to an API in this version.
+          </p>
+        </div>
+      </section>
 
       <section className="mx-auto grid max-w-6xl gap-5 px-5 pb-16 sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-3xl border border-white/10 bg-white/[0.055] p-6 shadow-2xl shadow-black/20 backdrop-blur-2xl">

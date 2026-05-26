@@ -18,13 +18,15 @@ const dryRunOutput = [
 const safetyFeatures = [
   "dry-run only",
   "conflict warning",
+  "empty prefix check",
+  "root folder protection",
   "no folder recursion",
   "no overwrite",
 ];
 
 export const metadata = {
-  title: "Batch File Renamer Prototype",
-  description: "Frontend prototype for a batch file renaming utility in the Python Study Utilities project.",
+  title: "Batch File Renamer Dry-run Utility",
+  description: "Dry-run Python script and frontend prototype for a batch file renaming utility.",
 };
 
 export default function BatchFileRenamerPage() {
@@ -48,14 +50,14 @@ export default function BatchFileRenamerPage() {
       <section className="mx-auto grid max-w-6xl gap-10 px-5 pb-16 pt-12 sm:px-8 sm:pt-20 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <p className="mb-5 font-mono text-sm font-semibold uppercase tracking-[0.22em] text-emerald-200">
-            Utility Prototype / Batch File Renamer
+            Dry-run Utility / Batch File Renamer
           </p>
           <h1 className="max-w-4xl text-5xl font-semibold leading-tight tracking-tight sm:text-7xl">
-            批量文件重命名工具的前端原型。
+            批量文件重命名工具的 dry-run 版本。
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300">
-            这个页面展示未来 Python Study Utilities 里的第一个工具方向：把零散学习文件按课程前缀和命名规则批量整理。
-            当前已经补上真实 Python dry-run script，可以预览批量重命名结果，但不会真的修改文件。
+            这是 Python Study Utilities 里的第一个已启动工具：把零散学习文件按课程前缀和命名规则批量整理。
+            当前已有真实 Python dry-run script，可以预览批量重命名结果，但不会真的修改文件。
           </p>
         </div>
 
@@ -87,12 +89,12 @@ export default function BatchFileRenamerPage() {
           <div className="mb-6 flex flex-col justify-between gap-4 lg:flex-row lg:items-end">
             <div>
               <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-emerald-200">
-                Python Script
+                Terminal Evidence
               </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">Python dry-run script 已完成</h2>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight">Dry-run proof from terminal</h2>
               <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
                 真实脚本放在 <span className="font-mono text-emerald-100">python-tools/batch-file-renamer</span>。
-                它会读取 sample files 并打印重命名预览，当前不会执行真实 rename。
+                它会读取 sample files 并打印重命名预览，当前不会执行真实 rename，也不会移动或覆盖文件。
               </p>
             </div>
             <span className="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-4 py-2 text-sm font-semibold text-cyan-100">
@@ -123,6 +125,15 @@ export default function BatchFileRenamerPage() {
                 这个输出只是预览计划，脚本不会修改、覆盖或移动任何文件。
               </p>
             </div>
+          </div>
+          <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-5">
+            <p className="text-sm font-semibold text-slate-200">安全检查证据</p>
+            <ul className="mt-3 grid gap-2 text-sm leading-7 text-slate-400 sm:grid-cols-2">
+              <li>Conflict warning: 如果目标文件已存在，会显示 WARNING。</li>
+              <li>Empty prefix check: prefix 为空时会直接报错退出。</li>
+              <li>Root folder protection: 拒绝从磁盘根目录预览文件。</li>
+              <li>Dry-run only: 当前版本不会执行真实 rename。</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -155,7 +166,7 @@ export default function BatchFileRenamerPage() {
           <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-cyan-200">
             Prototype Explanation
           </p>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight">当前原型说明</h2>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight">当前版本说明</h2>
           <ul className="mt-5 space-y-3 text-slate-300">
             <li className="flex gap-3">
               <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-200" />

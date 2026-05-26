@@ -13,8 +13,8 @@ const utilities = [
   {
     name: "Batch File Renamer",
     description: "按课程名、日期或编号规则批量重命名学习资料，减少手动改文件名的时间。",
-    status: "Planned",
-    next: "先支持预览新文件名，再执行真正的 rename。",
+    status: "Dry-run Ready",
+    next: "继续完善展示说明，真实 rename 模式以后再做。",
     href: "/projects/python-study-utilities/batch-file-renamer",
   },
   {
@@ -39,8 +39,8 @@ const utilities = [
 
 const directions = [
   "把常用脚本整理成一个小型 toolkit",
-  "给每个工具补 README、示例输入和示例输出",
-  "增加 dry-run 模式，先预览再执行，避免误改文件",
+  "继续给工具补 README、示例输入和示例输出",
+  "保持 dry-run 优先，先预览再考虑执行，避免误改文件",
   "未来可以给常用功能做一个简单 Web UI",
 ];
 
@@ -63,7 +63,7 @@ export default function PythonStudyUtilitiesPage() {
           Back to Portfolio
         </Link>
         <span className="rounded-full border border-emerald-200/20 bg-emerald-200/10 px-4 py-2 text-sm font-semibold text-emerald-100">
-          Early Planning · Python Toolkit
+          Toolkit Roadmap · First dry-run ready
         </span>
       </nav>
 
@@ -159,10 +159,10 @@ export default function PythonStudyUtilitiesPage() {
               <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-emerald-200">
                 Utilities Preview
               </p>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">计划中的工具列表</h2>
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight">工具路线图和当前进度</h2>
             </div>
             <p className="max-w-md text-sm leading-6 text-slate-400">
-              当前是 roadmap 展示，后续每个工具都会补真实脚本、README 和使用示例。
+              Batch File Renamer 已经有 dry-run Python script；其他工具仍按 roadmap 小步推进。
             </p>
           </div>
 
@@ -178,7 +178,7 @@ export default function PythonStudyUtilitiesPage() {
                 <p className="mt-4 text-sm leading-7 text-slate-300">{utility.description}</p>
                 <div className="mt-5 rounded-2xl border border-white/10 bg-black/20 p-4">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    后续计划
+                    当前状态 / 后续计划
                   </p>
                   <p className="mt-2 text-sm leading-6 text-slate-300">{utility.next}</p>
                 </div>
@@ -187,7 +187,7 @@ export default function PythonStudyUtilitiesPage() {
                     className="mt-5 inline-flex items-center text-sm font-semibold text-emerald-100"
                     href={utility.href}
                   >
-                    View prototype
+                    View dry-run utility
                     <span className="ml-2 transition group-hover:translate-x-1">→</span>
                   </Link>
                 ) : null}

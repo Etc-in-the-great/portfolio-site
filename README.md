@@ -10,8 +10,8 @@ https://portfolio-site-sepia-mu.vercel.app
 
 - Personal Portfolio: a deployed portfolio homepage and project case study.
 - AI Study Assistant prototype: an interactive static prototype for turning notes into Summary, Key Points, and Review Questions.
-- Python Study Utilities: a roadmap for small Python learning tools.
-- Batch File Renamer dry-run script: a safe Python script that previews batch rename results without changing files.
+- Python Study Utilities: a student toolkit direction with one dry-run utility already started.
+- Batch File Renamer: a safe dry-run Python script that previews batch rename results without changing files.
 
 ## Project Structure
 
@@ -61,8 +61,15 @@ This script only prints the planned rename result. It does not rename, move, or 
 
 - Portfolio: deployed / active.
 - AI Study Assistant: interactive static prototype.
-- Python Study Utilities: roadmap / early planning.
-- Batch File Renamer: dry-run Python script with conflict warnings.
+- Python Study Utilities: toolkit roadmap with Batch File Renamer dry-run script ready.
+- Batch File Renamer: dry-run Python script ready, with conflict warnings.
+
+## Evidence / Demo
+
+- Portfolio deployed: the live site is available at https://portfolio-site-sepia-mu.vercel.app.
+- AI Study Assistant: static frontend prototype with mock data. It shows the intended flow from notes to summary, key points, and review questions, but no API is connected yet.
+- Batch File Renamer: dry-run Python utility ready. It previews rename results in the terminal and does not rename, move, or overwrite files.
+- Screenshots to add later: portfolio homepage, AI Study Assistant prototype state, and Batch File Renamer dry-run preview. These screenshots are not included yet.
 
 ## Tech Stack
 
@@ -76,6 +83,6 @@ This script only prints the planned rename result. It does not rename, move, or 
 ## Next Improvements
 
 - Add real screenshots for project pages.
-- Continue improving Python utility scripts with safe dry-run defaults.
+- Continue improving Batch File Renamer while keeping safe dry-run defaults.
 - Build the next Python utility: Study Folder Organizer.
 - Later connect AI Study Assistant to a real API after the static flow is clear.
