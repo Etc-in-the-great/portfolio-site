@@ -1,14 +1,25 @@
-# AI Workflow Layer
+# AI Workflow Layer For Portfolio Site
 
-This directory is the workspace-level AI collaboration layer. It is not business code.
+This directory is the project-level AI collaboration layer. It is not business code and should not contain product implementation.
 
-Use it to keep AI-assisted development controlled, reviewable, and portfolio-oriented.
+Use it to keep AI-assisted development controlled, reviewable, portfolio-oriented, and easy to roll back.
 
 ## Structure
 
 - `workflows/`: step-by-step operating procedures for planning, review, rollback, and orchestration.
 - `skills/`: project-specific skill documents written in Codex skill style.
 - `templates/`: reusable task and review templates.
+
+## Project Context
+
+This repository currently includes:
+
+- A deployed personal portfolio.
+- An AI Study Assistant static prototype.
+- Python Study Utilities roadmap pages.
+- A Batch File Renamer dry-run Python script.
+
+The workflow layer should help the project grow through honest, visible, small steps. It should not push the project toward heavy architecture, fake production claims, or hidden complexity.
 
 ## Important Status
 
@@ -24,10 +35,12 @@ Start with:
 
 1. Read `AGENTS.md`.
 2. Use `workflows/task-intake.md` to define the smallest useful task.
-3. Use the most relevant project skill under `skills/`.
-4. Make a focused change.
-5. Use `workflows/review-checklist.md`.
-6. Use `workflows/rollback.md` before risky work.
+3. Use `workflows/scope-control.md` if the task is growing.
+4. Use the most relevant project skill under `skills/`.
+5. Make a focused change.
+6. Use `workflows/review-first.md` and `workflows/review-checklist.md`.
+7. Use `workflows/evidence-driven-portfolio.md` when updating claims or documentation.
+8. Use `workflows/rollback.md` before risky work.
 
 ## Design Goal
 
