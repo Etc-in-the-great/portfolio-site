@@ -41,13 +41,13 @@ const projects = [
   },
   {
     title: "AI Study Assistant",
-    status: "Prototype / Planning",
-    badge: "Interactive Prototype",
+    status: "API Prototype",
+    badge: "DeepSeek Connected",
     problem: "学习资料和 PDF 笔记内容多，复习时很难快速抓重点和整理结构。",
     description:
-      "正在开发中的 AI 学习工具原型，已经有 example notes、mock interaction 和本地生成结果展示。",
-    tags: ["AI Tools", "React", "OpenAI API"],
-    next: "继续打磨交互流程，再接入 OpenAI API、PDF / Text 上传和学习历史保存。",
+      "正在开发中的 AI 学习工具原型，已经通过服务器端 API Route 接入 DeepSeek，可以把笔记生成 Summary、Key Points 和 Review Questions。",
+    tags: ["AI Tools", "React", "DeepSeek API"],
+    next: "继续优化 DeepSeek 输出结构，再补 PDF / Text 上传和学习历史保存。",
     accent: "from-violet-300 to-fuchsia-500",
     href: "/projects/ai-study-assistant",
   },
@@ -75,7 +75,7 @@ const roadmap = [
   "保持 Portfolio 已部署状态，并继续同步项目页面和 README 文案。",
   "给每个 Projects 补上截图、开发记录和简短复盘。",
   "继续打磨 Batch File Renamer 的 dry-run 工具展示和使用说明。",
-  "在 AI Study Assistant 静态流程稳定后，再考虑接入真实 API。",
+  "继续优化 AI Study Assistant 的 DeepSeek prompt、错误提示和部署环境变量。",
 ];
 
 export default function Home() {
@@ -349,10 +349,10 @@ export default function Home() {
                       href={project.href}
                     >
                       {project.title === "AI Study Assistant"
-                        ? "Try prototype / Read case study"
+                        ? "Try AI assistant / Read case study"
                         : project.title === "Python Study Utilities"
-                          ? "View toolkit / Dry-run utility"
-                          : "View case study"}
+                            ? "View toolkit / Dry-run utility"
+                            : "View case study"}
                       <span className="ml-2 transition group-hover:translate-x-1">→</span>
                     </Link>
                   ) : (

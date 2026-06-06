@@ -1,19 +1,19 @@
 import Link from "next/link";
 import AssistantPrototype from "./AssistantPrototype";
 
-const stack = ["Next.js", "React", "Tailwind CSS", "OpenAI API later"];
+const stack = ["Next.js", "React", "Tailwind CSS", "DeepSeek API"];
 
 const nextSteps = [
-  "接入真实 AI API，让输入内容可以生成 Summary 和复习问题",
+  "继续优化 DeepSeek API 输出结构，让 Summary、Key Points 和 Review Questions 更稳定",
   "支持 PDF 上传，先完成文本提取和预览",
   "保存学习记录，方便回看每次总结和复习进度",
   "补充 README 和截图，让项目能作为独立作品展示",
 ];
 
 const prototypeNotes = [
-  "当前没有接入真实 API，页面不会把输入内容发送到服务器。",
-  "交互结果来自本地 mock data，用来模拟未来 AI 生成后的效果。",
-  "这个页面用于展示产品想法、交互流程和后续扩展方向。",
+  "当前已经通过 Next.js API Route 接入 DeepSeek API。",
+  "DeepSeek API Key 只保存在服务器环境变量里，不会写进前端代码。",
+  "如果没有配置 DEEPSEEK_API_KEY，页面会显示配置提示，而不是暴露密钥。",
 ];
 
 const prototypeFlow = [
@@ -24,7 +24,7 @@ const prototypeFlow = [
 ];
 
 const milestones = [
-  "接入 OpenAI API",
+  "优化 DeepSeek Prompt",
   "支持 PDF / Text 上传",
   "保存学习历史",
   "生成 Quiz",
@@ -33,7 +33,7 @@ const milestones = [
 
 export const metadata = {
   title: "AI Study Assistant Case Study",
-  description: "Static prototype for an AI study assistant built with Next.js, React, and Tailwind CSS.",
+  description: "API prototype for an AI study assistant built with Next.js, React, Tailwind CSS, and DeepSeek.",
 };
 
 export default function AIStudyAssistantPage() {
@@ -50,7 +50,7 @@ export default function AIStudyAssistantPage() {
           Back to Portfolio
         </Link>
         <span className="rounded-full border border-violet-200/20 bg-violet-200/10 px-4 py-2 text-sm font-semibold text-violet-100">
-          Static Prototype · No API connected yet
+          API Prototype · DeepSeek
         </span>
       </nav>
 
@@ -67,16 +67,16 @@ export default function AIStudyAssistantPage() {
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-slate-300">
             把课程笔记转成 Summary、Key Points 和 Review Questions。目标是帮助我把课程笔记或 PDF 内容整理成更清晰的总结、重点和复习问题，
-            先把产品界面和学习流程做出来，后续再接入真实 OpenAI API。
+            当前已经先接入 DeepSeek API，后续再继续优化 PDF 上传和学习记录。
           </p>
           <div className="mt-5 inline-flex max-w-full flex-col gap-1 rounded-2xl border border-cyan-200/20 bg-cyan-200/10 px-4 py-3 text-sm text-cyan-50/85 sm:flex-row sm:items-center sm:gap-3">
-            <span className="font-semibold text-cyan-100">当前版本：Static Prototype</span>
+            <span className="font-semibold text-cyan-100">当前版本：API Prototype</span>
             <span className="hidden h-1.5 w-1.5 rounded-full bg-cyan-200 sm:block" />
-            <span>No API connected yet</span>
+            <span>DeepSeek API via server route</span>
           </div>
           <p className="mt-4 max-w-3xl rounded-2xl border border-violet-200/15 bg-violet-200/10 p-4 text-sm leading-7 text-violet-50/80">
-            这是一个静态原型，当前用于展示产品结构和交互流程；点击示例和 Generate Summary 只会读取本地 mock data，
-            不会上传内容，也不会调用真实 AI API。
+            这是一个正在从静态原型升级成真实 AI 工具的版本。点击 Generate Summary 后，页面会请求本项目的 API Route，
+            再由服务器端调用 DeepSeek API。API Key 不会出现在浏览器代码里。
           </p>
           <div className="mt-8 flex flex-wrap gap-2">
             {stack.map((item) => (
@@ -115,7 +115,7 @@ export default function AIStudyAssistantPage() {
                 <div className="rounded-2xl border border-violet-300/15 bg-violet-300/10 p-4">
                   <p className="text-sm font-semibold text-violet-100">Status</p>
                   <p className="mt-2 text-sm leading-6 text-violet-50/75">
-                    当前是静态原型，暂时不调用 API。
+                    当前通过服务器端 API Route 调用 DeepSeek。
                   </p>
                 </div>
               </div>
@@ -159,7 +159,7 @@ export default function AIStudyAssistantPage() {
             <h2 className="mt-4 text-3xl font-semibold tracking-tight">真实前端交互原型，当前使用 mock data</h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-400">
               这个页面已经可以在浏览器里完成基本交互：选择示例笔记、点击 Generate Summary、查看 Summary、Key Points 和 Review Questions。
-              当前结果来自本地 mock data，no API connected yet。
+              当前已经接入 DeepSeek API；example notes 仍然保留，方便快速测试不同学习场景。
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-4">
@@ -173,7 +173,7 @@ export default function AIStudyAssistantPage() {
             ))}
           </div>
           <p className="mt-4 rounded-2xl border border-cyan-200/15 bg-cyan-200/10 p-4 text-sm leading-7 text-cyan-50/80">
-            Evidence status: frontend prototype is real; AI generation is simulated; no user content is sent to an API in this version.
+            Evidence status: frontend prototype is real; AI generation is powered by DeepSeek when DEEPSEEK_API_KEY is configured.
           </p>
         </div>
       </section>
@@ -216,7 +216,7 @@ export default function AIStudyAssistantPage() {
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight">下一步计划</h2>
           <p className="mt-5 leading-8 text-slate-300">
-            当前状态是静态原型，重点是把页面结构和使用流程先跑通。后面再逐步接入真实能力。
+            当前状态是 API Prototype，重点是先跑通从前端输入到 DeepSeek 生成结果的最小闭环。后面再逐步补 PDF、历史记录和 Quiz。
           </p>
         </div>
         <ol className="space-y-4">

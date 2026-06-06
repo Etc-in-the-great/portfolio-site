@@ -64,6 +64,7 @@ export default function AssistantPrototype() {
   const [note, setNote] = useState(examples[0].note);
   const [result, setResult] = useState(examples[0]);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const activeExample = examples.find((example) => example.id === activeId) ?? examples[0];
 
@@ -72,15 +73,39 @@ export default function AssistantPrototype() {
     setNote(example.note);
     setResult(example);
     setIsLoading(false);
+    setErrorMessage("");
   }
 
-  function generateSummary() {
+  async function generateSummary() {
     setIsLoading(true);
+    setErrorMessage("");
 
-    window.setTimeout(() => {
-      setResult(activeExample);
+    try {
+      const response = await fetch("/api/study-assistant", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ note }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error ?? "DeepSeek API 调用失败。");
+      }
+
+      setResult({
+        ...activeExample,
+        summary: data.summary,
+        keyPoints: data.keyPoints,
+        questions: data.questions,
+      });
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "生成失败，请稍后重试。");
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   }
 
   return (
@@ -93,12 +118,12 @@ export default function AssistantPrototype() {
             </p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight">核心功能静态交互</h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-400">
-              选择不同 example notes 后，左侧输入和右侧输出会同步切换。Generate Summary 会模拟一次 AI 生成流程，
-              但所有内容都来自本地 mock data。
+              选择不同 example notes 后，左侧输入和右侧输出会同步切换。Generate Summary 会把当前笔记发送到本项目的
+              API Route，再由服务器端调用 DeepSeek API。
             </p>
           </div>
           <div className="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-4 py-2 text-sm font-semibold text-cyan-100">
-            Static Prototype · No API connected yet
+            API Prototype · DeepSeek connected by env key
           </div>
         </div>
 
@@ -132,10 +157,15 @@ export default function AssistantPrototype() {
               className="mt-4 inline-flex h-12 w-full items-center justify-center rounded-full bg-white px-5 text-sm font-semibold text-slate-950 shadow-[0_20px_60px_rgba(255,255,255,0.14)] transition hover:-translate-y-0.5 hover:bg-cyan-100 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               type="button"
               onClick={generateSummary}
-              disabled={isLoading}
+              disabled={isLoading || !note.trim()}
             >
               {isLoading ? "Generating..." : "Generate Summary"}
             </button>
+            {errorMessage ? (
+              <p className="mt-3 rounded-2xl border border-rose-300/20 bg-rose-300/10 p-3 text-sm leading-6 text-rose-100">
+                {errorMessage}
+              </p>
+            ) : null}
           </label>
 
           <div className="grid gap-4">
