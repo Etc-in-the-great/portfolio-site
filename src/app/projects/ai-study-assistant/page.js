@@ -19,6 +19,7 @@ const prototypeNotes = [
 const prototypeFlow = [
   "Paste or select a study note",
   "Click Generate Summary",
+  "Save Note to local history",
   "Review the generated summary",
   "Read key points and review questions",
 ];
@@ -26,6 +27,7 @@ const prototypeFlow = [
 const milestones = [
   "优化 DeepSeek Prompt",
   "支持 PDF / Text 上传",
+  "把 History 接入数据库",
   "保存学习历史",
   "生成 Quiz",
   "移动端优化",
@@ -149,6 +151,29 @@ export default function AIStudyAssistantPage() {
       </section>
 
       <AssistantPrototype />
+
+      <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-8">
+        <div className="rounded-3xl border border-emerald-300/15 bg-emerald-300/10 p-6 shadow-2xl shadow-black/20">
+          <p className="font-mono text-sm font-semibold uppercase tracking-[0.2em] text-emerald-200">
+            Learning History Module
+          </p>
+          <div className="mt-4 grid gap-5 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <h2 className="text-3xl font-semibold tracking-tight">先把保存结构设计清楚。</h2>
+              <p className="mt-4 text-sm leading-7 text-emerald-50/80">
+                生成 Summary 后可以点击 Save Note，把当前输入、总结、重点和复习问题保存到本地 History。
+                当前版本使用 localStorage 和 mock data，不接数据库。
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
+              <p className="text-sm font-semibold text-white">Data structure</p>
+              <p className="mt-2 font-mono text-sm leading-7 text-emerald-50/75">
+                title · content · summary · keyPoints · questions · createdAt
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <section className="mx-auto max-w-6xl px-5 pb-16 sm:px-8">
         <div className="rounded-3xl border border-white/10 bg-[#0d111c] p-5 shadow-2xl shadow-black/20 sm:p-6">

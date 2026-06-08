@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { createHistoryItem, learningHistoryStorageKey, mockLearningHistory } from "./learningHistoryData";
 
 const examples = [
   {
@@ -65,6 +67,8 @@ export default function AssistantPrototype() {
   const [result, setResult] = useState(examples[0]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [saveMessage, setSaveMessage] = useState("");
+  const [hasGeneratedSummary, setHasGeneratedSummary] = useState(false);
 
   const activeExample = examples.find((example) => example.id === activeId) ?? examples[0];
 
@@ -74,11 +78,21 @@ export default function AssistantPrototype() {
     setResult(example);
     setIsLoading(false);
     setErrorMessage("");
+    setSaveMessage("");
+    setHasGeneratedSummary(false);
   }
 
   async function generateSummary() {
+    if (!note.trim()) {
+      setErrorMessage("请先输入一段学习笔记，再 Generate Summary。");
+      setSaveMessage("");
+      return;
+    }
+
     setIsLoading(true);
     setErrorMessage("");
+    setSaveMessage("");
+    setHasGeneratedSummary(false);
 
     try {
       const response = await fetch("/api/study-assistant", {
@@ -101,10 +115,45 @@ export default function AssistantPrototype() {
         keyPoints: data.keyPoints,
         questions: data.questions,
       });
+      setHasGeneratedSummary(true);
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : "生成失败，请稍后重试。");
     } finally {
       setIsLoading(false);
+    }
+  }
+
+  function saveNote() {
+    if (!note.trim()) {
+      setSaveMessage("");
+      setErrorMessage("保存前请先输入一段学习笔记。");
+      return;
+    }
+
+    if (!hasGeneratedSummary) {
+      setSaveMessage("");
+      setErrorMessage("保存前请先点击 Generate Summary，生成 Summary 后再保存。");
+      return;
+    }
+
+    const title = activeExample.label;
+    const historyItem = createHistoryItem({
+      title,
+      content: note,
+      summary: result.summary,
+      keyPoints: result.keyPoints,
+      questions: result.questions,
+    });
+
+    try {
+      const stored = window.localStorage.getItem(learningHistoryStorageKey);
+      const currentHistory = stored ? JSON.parse(stored) : mockLearningHistory;
+      window.localStorage.setItem(learningHistoryStorageKey, JSON.stringify([historyItem, ...currentHistory]));
+      setSaveMessage(`Saved "${title}" to local Learning History.`);
+      setErrorMessage("");
+    } catch {
+      setSaveMessage("");
+      setErrorMessage("保存失败：浏览器 localStorage 当前不可用。");
     }
   }
 
@@ -125,6 +174,15 @@ export default function AssistantPrototype() {
           <div className="rounded-full border border-cyan-200/20 bg-cyan-200/10 px-4 py-2 text-sm font-semibold text-cyan-100">
             API Prototype · DeepSeek connected by env key
           </div>
+        </div>
+
+        <div className="mb-5 flex flex-wrap gap-2">
+          <Link
+            className="rounded-full border border-emerald-200/20 bg-emerald-200/10 px-4 py-2 text-sm font-semibold text-emerald-100 transition hover:border-emerald-100/50 hover:text-white"
+            href="/projects/ai-study-assistant/history"
+          >
+            View Learning History
+          </Link>
         </div>
 
         <div className="mb-5 flex flex-wrap gap-2">
@@ -150,7 +208,11 @@ export default function AssistantPrototype() {
             <textarea
               className="mt-4 min-h-80 w-full resize-none rounded-2xl border border-white/10 bg-black/25 p-4 text-sm leading-7 text-slate-300 outline-none transition focus:border-cyan-200/40"
               value={note}
-              onChange={(event) => setNote(event.target.value)}
+              onChange={(event) => {
+                setNote(event.target.value);
+                setHasGeneratedSummary(false);
+                setSaveMessage("");
+              }}
               aria-label="Input notes"
             />
             <button
@@ -161,6 +223,22 @@ export default function AssistantPrototype() {
             >
               {isLoading ? "Generating..." : "Generate Summary"}
             </button>
+            <button
+              className="mt-3 inline-flex h-12 w-full items-center justify-center rounded-full border border-emerald-200/25 bg-emerald-200/10 px-5 text-sm font-semibold text-emerald-50 transition hover:-translate-y-0.5 hover:border-emerald-100/50 disabled:cursor-not-allowed disabled:opacity-60 sm:ml-3 sm:mt-4 sm:w-auto"
+              type="button"
+              onClick={saveNote}
+              disabled={isLoading}
+            >
+              Save Note
+            </button>
+            {saveMessage ? (
+              <p className="mt-3 rounded-2xl border border-emerald-300/30 bg-emerald-300/15 p-4 text-sm font-semibold leading-6 text-emerald-50 shadow-[0_0_30px_rgba(110,231,183,0.12)]">
+                {saveMessage}{" "}
+                <Link className="font-semibold underline underline-offset-4" href="/projects/ai-study-assistant/history">
+                  View History
+                </Link>
+              </p>
+            ) : null}
             {errorMessage ? (
               <p className="mt-3 rounded-2xl border border-rose-300/20 bg-rose-300/10 p-3 text-sm leading-6 text-rose-100">
                 {errorMessage}
