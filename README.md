@@ -79,10 +79,15 @@ Current direction:
 
 For mentor review, this repository includes documentation under `docs/`:
 
+- `docs/project-links.md`
 - `docs/mentor-project-overview.md`
 - `docs/mentor-message-draft.md`
 - `docs/project-architecture.md`
 - `docs/screenshots/`
+
+## Project Links
+
+Use `docs/project-links.md` as the unified entry document for mentor review, competition submission, resume reference, graduation project discussion, and project defense preparation.
 
 ## Evidence / Demo
 
