@@ -10,7 +10,7 @@ https://portfolio-site-sepia-mu.vercel.app
 
 - Personal Portfolio: a deployed portfolio homepage and project case study.
 - AI Study Assistant: an API prototype that turns notes into Summary, Key Points, and Review Questions through DeepSeek.
-- Learning History Module: a local prototype for saving generated study notes and reviewing saved details before database integration.
+- Learning History Module: a local prototype and case study for saving generated study notes before database integration.
 - Python Study Utilities: a student toolkit direction with one dry-run utility already started.
 - Batch File Renamer: a safe dry-run Python script that previews batch rename results without changing files.
 
@@ -65,13 +65,33 @@ This script only prints the planned rename result. It does not rename, move, or 
 - Python Study Utilities: toolkit roadmap with Batch File Renamer dry-run script ready.
 - Batch File Renamer: dry-run Python script ready, with conflict warnings.
 
+## Graduation Project Direction
+
+This project can continue evolving into an **AI-assisted Learning and Project Management System**.
+
+Current direction:
+
+- Learning History: save and review AI-generated study notes.
+- Database: move local learning records from `localStorage` to Supabase or MySQL.
+- Project Management: track project tasks, milestones, README status, and learning progress.
+- AI-generated README: generate documentation drafts from project structure and journal notes.
+- Admin Features: add basic user management, data views, and project status management later.
+
+For mentor review, this repository includes documentation under `docs/`:
+
+- `docs/mentor-project-overview.md`
+- `docs/mentor-message-draft.md`
+- `docs/project-architecture.md`
+- `docs/screenshots/`
+
 ## Evidence / Demo
 
 - Portfolio deployed: the live site is available at https://portfolio-site-sepia-mu.vercel.app.
 - AI Study Assistant: set `DEEPSEEK_API_KEY` in `.env.local` or Vercel Environment Variables to generate real Summary, Key Points, and Review Questions through DeepSeek.
 - Learning History Module: Save Note, History Page, and Note Detail are implemented with browser `localStorage`. This is the product prototype stage before connecting a real database.
+- Learning History Case Study: `/projects/ai-study-assistant/learning-history` explains the problem, data model, user flow, current scope, and database-ready next steps.
 - Batch File Renamer: dry-run Python utility ready. It previews rename results in the terminal and does not rename, move, or overwrite files.
-- Screenshots to add later: portfolio homepage, AI Study Assistant API prototype state, and Batch File Renamer dry-run preview. These screenshots are not included yet.
+- Screenshots archive: key screenshots are saved under `docs/screenshots/` for mentor review and later presentation materials.
 
 ## Tech Stack
 
@@ -108,6 +128,7 @@ Current implementation:
 - Includes a History page for saved notes.
 - Includes a Note Detail page for reading a saved note.
 - Supports deleting a saved note from local history.
+- Includes a portfolio case study page for explaining the product decision and next database milestone.
 
 Current scope:
 
@@ -123,6 +144,8 @@ Future database direction:
 ## Next Improvements
 
 - Add real screenshots for project pages.
+- Test and deploy the Learning History Case Study page.
+- Design the Learning History database schema before connecting Supabase or MySQL.
 - Continue improving Batch File Renamer while keeping safe dry-run defaults.
 - Build the next Python utility: Study Folder Organizer.
 - Improve the AI Study Assistant prompt and add PDF / Text upload later.

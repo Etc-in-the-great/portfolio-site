@@ -164,6 +164,20 @@ export default function AIStudyAssistantPage() {
                 生成 Summary 后可以点击 Save Note，把当前输入、总结、重点和复习问题保存到本地 History。
                 当前版本使用 localStorage 和 mock data，不接数据库。
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link
+                  className="rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-emerald-100"
+                  href="/projects/ai-study-assistant/learning-history"
+                >
+                  Read Learning History case study
+                </Link>
+                <Link
+                  className="rounded-full border border-white/10 bg-black/20 px-5 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:border-emerald-100/40"
+                  href="/projects/ai-study-assistant/history"
+                >
+                  Open History prototype
+                </Link>
+              </div>
             </div>
             <div className="rounded-2xl border border-white/10 bg-black/20 p-4">
               <p className="text-sm font-semibold text-white">Data structure</p>
